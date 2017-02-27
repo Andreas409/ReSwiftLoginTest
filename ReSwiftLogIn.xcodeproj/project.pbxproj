@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		16B8BEA9267A892BC84117B0 /* Pods_ReSwiftLogIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B6A55BD024AC3F93C4497E /* Pods_ReSwiftLogIn.framework */; };
 		E160C7601E647E7100970B23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160C75F1E647E7100970B23 /* AppDelegate.swift */; };
-		E160C7621E647E7100970B23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160C7611E647E7100970B23 /* ViewController.swift */; };
 		E160C7651E647E7100970B23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E160C7631E647E7100970B23 /* Main.storyboard */; };
 		E160C7671E647E7100970B23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E160C7661E647E7100970B23 /* Assets.xcassets */; };
 		E160C76A1E647E7100970B23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E160C7681E647E7100970B23 /* LaunchScreen.storyboard */; };
+		E160C7771E64808D00970B23 /* SignInState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160C7761E64808D00970B23 /* SignInState.swift */; };
+		E160C7791E64836500970B23 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160C7781E64836500970B23 /* AppState.swift */; };
+		E160C77B1E6483B500970B23 /* SignInActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160C77A1E6483B500970B23 /* SignInActions.swift */; };
+		E160C77D1E64847F00970B23 /* SignInReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160C77C1E64847F00970B23 /* SignInReducer.swift */; };
+		E160C77F1E6485E000970B23 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160C77E1E6485E000970B23 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +25,15 @@
 		B92EC0F4C745E4C21F100056 /* Pods-ReSwiftLogIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSwiftLogIn.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReSwiftLogIn/Pods-ReSwiftLogIn.release.xcconfig"; sourceTree = "<group>"; };
 		E160C75C1E647E7100970B23 /* ReSwiftLogIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReSwiftLogIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E160C75F1E647E7100970B23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E160C7611E647E7100970B23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E160C7641E647E7100970B23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E160C7661E647E7100970B23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E160C7691E647E7100970B23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E160C76B1E647E7100970B23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E160C7761E64808D00970B23 /* SignInState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInState.swift; sourceTree = "<group>"; };
+		E160C7781E64836500970B23 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		E160C77A1E6483B500970B23 /* SignInActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInActions.swift; sourceTree = "<group>"; };
+		E160C77C1E64847F00970B23 /* SignInReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInReducer.swift; sourceTree = "<group>"; };
+		E160C77E1E6485E000970B23 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +87,49 @@
 			isa = PBXGroup;
 			children = (
 				E160C75F1E647E7100970B23 /* AppDelegate.swift */,
-				E160C7611E647E7100970B23 /* ViewController.swift */,
-				E160C7631E647E7100970B23 /* Main.storyboard */,
-				E160C7661E647E7100970B23 /* Assets.xcassets */,
-				E160C7681E647E7100970B23 /* LaunchScreen.storyboard */,
-				E160C76B1E647E7100970B23 /* Info.plist */,
+				E160C7781E64836500970B23 /* AppState.swift */,
+				E160C7741E64802900970B23 /* SignedIn */,
+				E160C7721E64800000970B23 /* SignIn */,
+				E160C7711E647FF000970B23 /* Firebase */,
+				E160C7751E64803400970B23 /* Supporting Files */,
 			);
 			path = ReSwiftLogIn;
+			sourceTree = "<group>";
+		};
+		E160C7711E647FF000970B23 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
+		E160C7721E64800000970B23 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				E160C7761E64808D00970B23 /* SignInState.swift */,
+				E160C77A1E6483B500970B23 /* SignInActions.swift */,
+				E160C77C1E64847F00970B23 /* SignInReducer.swift */,
+				E160C77E1E6485E000970B23 /* SignInViewController.swift */,
+			);
+			name = SignIn;
+			sourceTree = "<group>";
+		};
+		E160C7741E64802900970B23 /* SignedIn */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SignedIn;
+			sourceTree = "<group>";
+		};
+		E160C7751E64803400970B23 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E160C7631E647E7100970B23 /* Main.storyboard */,
+				E160C7681E647E7100970B23 /* LaunchScreen.storyboard */,
+				E160C7661E647E7100970B23 /* Assets.xcassets */,
+				E160C76B1E647E7100970B23 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +256,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E160C7621E647E7100970B23 /* ViewController.swift in Sources */,
 				E160C7601E647E7100970B23 /* AppDelegate.swift in Sources */,
+				E160C7791E64836500970B23 /* AppState.swift in Sources */,
+				E160C77F1E6485E000970B23 /* SignInViewController.swift in Sources */,
+				E160C7771E64808D00970B23 /* SignInState.swift in Sources */,
+				E160C77B1E6483B500970B23 /* SignInActions.swift in Sources */,
+				E160C77D1E64847F00970B23 /* SignInReducer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,7 @@
 import UIKit
+import ReSwift
+
+let mainStore = Store<SignInState>(reducer: SignInReducer(), state: nil)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
