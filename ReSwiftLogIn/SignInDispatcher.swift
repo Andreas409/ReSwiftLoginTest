@@ -6,7 +6,7 @@ struct SignInDispatcher {
     let firebase = FirebaseAuthentication()
     
     func login(email: String, password: String) {
-        firebase.logInUser(email: email, password: password, dispatcher: self)
+        firebase.signInUser(email: email, password: password, dispatcher: self)
         mainStore.dispatch(SignInActionLogIn())
     }
     
@@ -30,5 +30,10 @@ struct SignInDispatcher {
     
     func logInSuccess() {
         mainStore.dispatch(SignInActionLogInSuccess())
+    }
+    
+    func signOut() {
+        firebase.signOutUser()
+        mainStore.dispatch(SignInActionSignOut())
     }
 }

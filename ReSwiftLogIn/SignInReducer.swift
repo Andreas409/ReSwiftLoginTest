@@ -21,6 +21,8 @@ struct SignInReducer: Reducer {
             state = handleCreatedAccountRequest(state: state)
         case _ as SignInActionLogInSuccess:
             state = handleLogInSuccessRequest(state: state)
+        case _ as SignInActionSignOut:
+            state = handleSignOutRequest(state: state)
         default:
             break
         }
@@ -81,6 +83,12 @@ struct SignInReducer: Reducer {
         var state = state
         state.loading = false
         state.signedIn = true
+        return state
+    }
+    
+    private func handleSignOutRequest(state: SignInState) -> SignInState {
+        var state = state
+        state.signedIn = false
         return state
     }
 }

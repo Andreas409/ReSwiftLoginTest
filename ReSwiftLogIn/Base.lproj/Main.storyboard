@@ -109,7 +109,13 @@
                             <constraint firstItem="n7T-0U-rlI" firstAttribute="top" secondItem="0xq-QE-2ku" secondAttribute="bottom" constant="20" id="xVX-Ny-34l"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Log In" id="pF5-1I-1sE"/>
+                    <navigationItem key="navigationItem" title="Log In" id="pF5-1I-1sE">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="da2-Hb-zNO">
+                            <connections>
+                                <action selector="didTapSignOut:" destination="4NC-nl-Xrj" id="Yc4-ew-Hmr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="NIY-pN-AU7" id="a6p-93-fC2"/>
                         <outlet property="createAccountButton" destination="7h1-q6-G1q" id="CPM-yo-7hN"/>
@@ -117,6 +123,7 @@
                         <outlet property="errorField" destination="n7T-0U-rlI" id="nuS-fG-897"/>
                         <outlet property="loginButton" destination="nB2-2m-PoX" id="XeF-WX-bHe"/>
                         <outlet property="passwordField" destination="U9c-ZR-I2y" id="IBE-T1-PYD"/>
+                        <outlet property="signOutButton" destination="da2-Hb-zNO" id="92h-h7-eSL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VEl-bX-c4y" userLabel="First Responder" sceneMemberID="firstResponder"/>

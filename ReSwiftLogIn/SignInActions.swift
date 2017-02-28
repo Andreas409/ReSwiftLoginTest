@@ -10,3 +10,4 @@ struct SignInActionValidatePassword: Action {
 }
 struct SignInActionCreatedAccount: Action {}
 struct SignInActionLogInSuccess: Action {}
+struct SignInActionSignOut: Action {}

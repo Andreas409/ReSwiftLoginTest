@@ -2,7 +2,7 @@ import Firebase
 
 class FirebaseAuthentication: FirebaseInstance {
     
-    internal func logInUser(email: String, password: String, dispatcher: SignInDispatcher) {
+    internal func signInUser(email: String, password: String, dispatcher: SignInDispatcher) {
         //toask: just use auth()?
         if let auth = FIRAuth.auth() {
             auth.signIn(withEmail: email, password: password) { (user, error) in
@@ -16,8 +16,12 @@ class FirebaseAuthentication: FirebaseInstance {
         }
     }
     
-    internal func logOutUser() {
-        print("Sign out")
+    internal func signOutUser() {
+        do {
+            try FIRAuth.auth()?.signOut()
+        } catch {
+            print("Signout Error")
+        }
     }
     
     internal func createUser(email: String, password: String, dispatcher: SignInDispatcher) {
