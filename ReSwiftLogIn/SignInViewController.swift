@@ -1,4 +1,5 @@
 import ReSwift
+import ReSwiftRouter
 import UIKit
 
 class SignInViewController: UIViewController {
@@ -12,33 +13,6 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var errorField: UILabel!
     let dispatcher = SignInDispatcher()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        assignTextFieldDelegates()
-        setupScene()
-    }
-    
-    private func setupScene() {
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.stopAnimating()
-        signOutButton.isEnabled = false
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        mainStore.subscribe(self)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        mainStore.unsubscribe(self)
-    }
-    
-    private func assignTextFieldDelegates() {
-        emailField.delegate = self
-        passwordField.delegate = self
-    }
     
     @IBAction func didTapLogIn(_ sender: AnyObject) {
         if let email = emailField.text, let password = passwordField.text {
@@ -55,10 +29,44 @@ class SignInViewController: UIViewController {
     @IBAction func didTapSignOut(_ sender: Any) {
         dispatcher.signOut()
     }
+    
+    fileprivate func enableLoadingState() {
+        //toask: better way to do this? -> new view above with partail opacity on white bg with indicator?
+        createAccountButton.isEnabled = false
+        createAccountButton.alpha = 0.5
+        loginButton.isEnabled = false
+        loginButton.alpha = 0.5
+        emailField.isEnabled = false
+        emailField.alpha = 0.5
+        emailField.isEnabled = false
+        emailField.alpha = 0.5
+        passwordField.isEnabled = false
+        passwordField.alpha = 0.5
+        activityIndicator.startAnimating()
+    }
+    
+    fileprivate func disableLoadingState() {
+        createAccountButton.isEnabled = true
+        createAccountButton.alpha = 1
+        loginButton.isEnabled = true
+        loginButton.alpha = 1
+        emailField.isEnabled = true
+        emailField.alpha = 1
+        emailField.isEnabled = true
+        emailField.alpha = 1
+        passwordField.isEnabled = true
+        passwordField.alpha = 1
+        activityIndicator.stopAnimating()
+    }
+
 }
 
 extension SignInViewController: StoreSubscriber {
     func newState(state: SignInState) {
+        handle(state: state)
+    }
+    
+    func handle(state: SignInState) {
         //toask handle all this nicer?
         if !state.errorMessage.isEmpty {
             errorField.text = state.errorMessage
@@ -78,34 +86,6 @@ extension SignInViewController: StoreSubscriber {
         }
     }
     
-    private func enableLoadingState() {
-        //toask: better way to do this? -> new view above with partail opacity on white bg with indicator?
-        createAccountButton.isEnabled = false
-        createAccountButton.alpha = 0.5
-        loginButton.isEnabled = false
-        loginButton.alpha = 0.5
-        emailField.isEnabled = false
-        emailField.alpha = 0.5
-        emailField.isEnabled = false
-        emailField.alpha = 0.5
-        passwordField.isEnabled = false
-        passwordField.alpha = 0.5
-        activityIndicator.startAnimating()
-    }
-    
-    private func disableLoadingState() {
-        createAccountButton.isEnabled = true
-        createAccountButton.alpha = 1
-        loginButton.isEnabled = true
-        loginButton.alpha = 1
-        emailField.isEnabled = true
-        emailField.alpha = 1
-        emailField.isEnabled = true
-        emailField.alpha = 1
-        passwordField.isEnabled = true
-        passwordField.alpha = 1
-        activityIndicator.stopAnimating()
-    }
 }
 
 extension SignInViewController: UITextFieldDelegate {
@@ -124,4 +104,36 @@ extension SignInViewController: UITextFieldDelegate {
         }
         return true
     }
+}
+
+extension SignInViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        assignTextFieldDelegates()
+        setupScene()
+    }
+    
+    private func setupScene() {
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
+        signOutButton.isEnabled = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mainStore.subscribe(self) { (state) -> SignInState in
+            return state.signInState
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        mainStore.unsubscribe(self)
+    }
+    
+    private func assignTextFieldDelegates() {
+        emailField.delegate = self
+        passwordField.delegate = self
+    }
+
 }

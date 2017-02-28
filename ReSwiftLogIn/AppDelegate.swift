@@ -2,7 +2,7 @@ import UIKit
 import ReSwift
 import Firebase
 
-let mainStore = Store<SignInState>(reducer: SignInReducer(), state: nil)
+let mainStore = Store<AppState>(reducer: AppReducer(), state: nil)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

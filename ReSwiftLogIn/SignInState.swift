@@ -1,6 +1,6 @@
 import ReSwift
 
-struct SignInState: StateType {
+struct SignInState {
     var userEmail: String
     var userPassword: String
     var errorMessage: String
