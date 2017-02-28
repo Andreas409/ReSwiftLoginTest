@@ -4,6 +4,9 @@ import UIKit
 class SignInViewController: UIViewController {
     typealias StoreSubscriberStateType = SignInState
     
+    @IBOutlet weak var createAccountButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var errorField: UILabel!
@@ -12,6 +15,12 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assignTextFieldDelegates()
+        setupScene()
+    }
+    
+    private func setupScene() {
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,22 +53,49 @@ class SignInViewController: UIViewController {
 
 extension SignInViewController: StoreSubscriber {
     func newState(state: SignInState) {
-        if state.loading {
-            errorField.text = "Waiting for data"
-            errorField.textColor = UIColor.blue
-        } else {
-            if state.signedIn {
-                print("signed in")
-                errorField.text = "Logged in!"
-                errorField.textColor = UIColor.green
-            }
-        }
-        
+        //toask handle all this nicer?
         if !state.errorMessage.isEmpty {
             errorField.text = state.errorMessage
         } else {
             errorField.text = ""
         }
+        
+        if state.loading {
+            enableLoadingState()
+        } else {
+            if state.signedIn {
+                disableLoadingState()
+            }
+        }
+    }
+    
+    private func enableLoadingState() {
+        //toask: better way to do this? -> new view above with partail opacity on white bg with indicator?
+        createAccountButton.isEnabled = false
+        createAccountButton.alpha = 0.5
+        loginButton.isEnabled = false
+        loginButton.alpha = 0.5
+        emailField.isEnabled = false
+        emailField.alpha = 0.5
+        emailField.isEnabled = false
+        emailField.alpha = 0.5
+        passwordField.isEnabled = false
+        passwordField.alpha = 0.5
+        activityIndicator.startAnimating()
+    }
+    
+    private func disableLoadingState() {
+        createAccountButton.isEnabled = true
+        createAccountButton.alpha = 1
+        loginButton.isEnabled = true
+        loginButton.alpha = 1
+        emailField.isEnabled = true
+        emailField.alpha = 1
+        emailField.isEnabled = true
+        emailField.alpha = 1
+        passwordField.isEnabled = true
+        passwordField.alpha = 1
+        activityIndicator.stopAnimating()
     }
 }
 

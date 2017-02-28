@@ -3,16 +3,10 @@ import Firebase
 class FirebaseListener {
     
     var authStateListener: FIRAuthStateDidChangeListenerHandle!
-    var dispatcher = SignInDispatcher()
     
     init() {
         FIRApp.configure()
         initAuthListener()
-        do {
-            try FIRAuth.auth()?.signOut()
-        } catch {
-            print("logged out")
-        }
     }
     
     deinit {

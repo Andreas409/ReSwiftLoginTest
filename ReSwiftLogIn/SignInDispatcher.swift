@@ -6,12 +6,14 @@ struct SignInDispatcher {
     let firebase = FirebaseAuthentication()
     
     func login(email: String, password: String) {
-        mainStore.dispatch(SignInActionLogIn(email: email, password: password))
+        firebase.logInUser(email: email, password: password, dispatcher: self)
+        mainStore.dispatch(SignInActionLogIn())
     }
     
     func createAccount(email: String, password: String) {
+        //toask: use of self like this feels wrong? how to bring up completion block?
         firebase.createUser(email: email, password: password, dispatcher: self)
-        mainStore.dispatch(SignInActionCreateAccount(email: email, password: password))
+        mainStore.dispatch(SignInActionCreateAccount())
     }
     
     func validateEmail(email: String) {
@@ -24,5 +26,9 @@ struct SignInDispatcher {
     
     func createAccountSuccess() {
         mainStore.dispatch(SignInActionCreatedAccount())
+    }
+    
+    func logInSuccess() {
+        mainStore.dispatch(SignInActionLogInSuccess())
     }
 }

@@ -42,10 +42,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rU1-3e-3Ez">
                                 <rect key="frame" x="24" y="243.5" width="327" height="180.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tc6-f0-HZ8">
-                                        <rect key="frame" x="110.5" y="0.0" width="106" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tc6-f0-HZ8">
+                                        <rect key="frame" x="123.5" y="0.0" width="80.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.2807837446" green="0.72051177180000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="1" green="0.60817357439999997" blue="0.1074936625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KnN-72-Nob">
@@ -92,6 +92,10 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="NIY-pN-AU7">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="1" green="0.60817357439999997" blue="0.1074936625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -99,14 +103,19 @@
                             <constraint firstAttribute="trailingMargin" secondItem="rU1-3e-3Ez" secondAttribute="trailing" constant="8" id="M3Y-Oa-I5m"/>
                             <constraint firstItem="n7T-0U-rlI" firstAttribute="leading" secondItem="OcM-ei-vgY" secondAttribute="leadingMargin" constant="8" id="Qpn-iD-CoP"/>
                             <constraint firstItem="rU1-3e-3Ez" firstAttribute="centerY" secondItem="OcM-ei-vgY" secondAttribute="centerY" id="Ri8-ib-cIa"/>
+                            <constraint firstItem="NIY-pN-AU7" firstAttribute="centerY" secondItem="OcM-ei-vgY" secondAttribute="centerY" id="bxF-07-hQT"/>
+                            <constraint firstItem="NIY-pN-AU7" firstAttribute="centerX" secondItem="OcM-ei-vgY" secondAttribute="centerX" id="p72-R1-t18"/>
                             <constraint firstItem="n7T-0U-rlI" firstAttribute="trailing" secondItem="OcM-ei-vgY" secondAttribute="trailingMargin" constant="8" id="x0o-TV-YSc"/>
                             <constraint firstItem="n7T-0U-rlI" firstAttribute="top" secondItem="0xq-QE-2ku" secondAttribute="bottom" constant="20" id="xVX-Ny-34l"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="pF5-1I-1sE"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="NIY-pN-AU7" id="a6p-93-fC2"/>
+                        <outlet property="createAccountButton" destination="7h1-q6-G1q" id="CPM-yo-7hN"/>
                         <outlet property="emailField" destination="KnN-72-Nob" id="zik-LO-x4H"/>
                         <outlet property="errorField" destination="n7T-0U-rlI" id="nuS-fG-897"/>
+                        <outlet property="loginButton" destination="nB2-2m-PoX" id="XeF-WX-bHe"/>
                         <outlet property="passwordField" destination="U9c-ZR-I2y" id="IBE-T1-PYD"/>
                     </connections>
                 </viewController>
