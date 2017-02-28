@@ -17,6 +17,13 @@
 		E160C77B1E6483B500970B23 /* SignInActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160C77A1E6483B500970B23 /* SignInActions.swift */; };
 		E160C77D1E64847F00970B23 /* SignInReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160C77C1E64847F00970B23 /* SignInReducer.swift */; };
 		E160C77F1E6485E000970B23 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160C77E1E6485E000970B23 /* SignInViewController.swift */; };
+		E1FC47DB1E6565830054C554 /* SignInDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC47DA1E6565830054C554 /* SignInDispatcher.swift */; };
+		E1FC47DD1E65689F0054C554 /* AccountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC47DC1E65689F0054C554 /* AccountValidator.swift */; };
+		E1FC47DF1E656A4E0054C554 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC47DE1E656A4E0054C554 /* Constants.swift */; };
+		E1FC47E11E657C610054C554 /* FirebaseInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC47E01E657C610054C554 /* FirebaseInstance.swift */; };
+		E1FC47E31E657E330054C554 /* FirebaseAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC47E21E657E330054C554 /* FirebaseAuthentication.swift */; };
+		E1FC47E51E657EC60054C554 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1FC47E41E657EC60054C554 /* GoogleService-Info.plist */; };
+		E1FC47EB1E65909A0054C554 /* FirebaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC47EA1E65909A0054C554 /* FirebaseListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +41,13 @@
 		E160C77A1E6483B500970B23 /* SignInActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInActions.swift; sourceTree = "<group>"; };
 		E160C77C1E64847F00970B23 /* SignInReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInReducer.swift; sourceTree = "<group>"; };
 		E160C77E1E6485E000970B23 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		E1FC47DA1E6565830054C554 /* SignInDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInDispatcher.swift; sourceTree = "<group>"; };
+		E1FC47DC1E65689F0054C554 /* AccountValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountValidator.swift; sourceTree = "<group>"; };
+		E1FC47DE1E656A4E0054C554 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E1FC47E01E657C610054C554 /* FirebaseInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseInstance.swift; sourceTree = "<group>"; };
+		E1FC47E21E657E330054C554 /* FirebaseAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentication.swift; sourceTree = "<group>"; };
+		E1FC47E41E657EC60054C554 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E1FC47EA1E65909A0054C554 /* FirebaseListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseListener.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +102,8 @@
 			children = (
 				E160C75F1E647E7100970B23 /* AppDelegate.swift */,
 				E160C7781E64836500970B23 /* AppState.swift */,
+				E1FC47DE1E656A4E0054C554 /* Constants.swift */,
+				E1FC47DC1E65689F0054C554 /* AccountValidator.swift */,
 				E160C7741E64802900970B23 /* SignedIn */,
 				E160C7721E64800000970B23 /* SignIn */,
 				E160C7711E647FF000970B23 /* Firebase */,
@@ -99,6 +115,9 @@
 		E160C7711E647FF000970B23 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				E1FC47E01E657C610054C554 /* FirebaseInstance.swift */,
+				E1FC47E21E657E330054C554 /* FirebaseAuthentication.swift */,
+				E1FC47EA1E65909A0054C554 /* FirebaseListener.swift */,
 			);
 			name = Firebase;
 			sourceTree = "<group>";
@@ -110,6 +129,7 @@
 				E160C77A1E6483B500970B23 /* SignInActions.swift */,
 				E160C77C1E64847F00970B23 /* SignInReducer.swift */,
 				E160C77E1E6485E000970B23 /* SignInViewController.swift */,
+				E1FC47DA1E6565830054C554 /* SignInDispatcher.swift */,
 			);
 			name = SignIn;
 			sourceTree = "<group>";
@@ -128,6 +148,7 @@
 				E160C7681E647E7100970B23 /* LaunchScreen.storyboard */,
 				E160C7661E647E7100970B23 /* Assets.xcassets */,
 				E160C76B1E647E7100970B23 /* Info.plist */,
+				E1FC47E41E657EC60054C554 /* GoogleService-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -198,6 +219,7 @@
 				E160C76A1E647E7100970B23 /* LaunchScreen.storyboard in Resources */,
 				E160C7671E647E7100970B23 /* Assets.xcassets in Resources */,
 				E160C7651E647E7100970B23 /* Main.storyboard in Resources */,
+				E1FC47E51E657EC60054C554 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,10 +279,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E160C7601E647E7100970B23 /* AppDelegate.swift in Sources */,
+				E1FC47E11E657C610054C554 /* FirebaseInstance.swift in Sources */,
+				E1FC47DB1E6565830054C554 /* SignInDispatcher.swift in Sources */,
 				E160C7791E64836500970B23 /* AppState.swift in Sources */,
+				E1FC47EB1E65909A0054C554 /* FirebaseListener.swift in Sources */,
+				E1FC47E31E657E330054C554 /* FirebaseAuthentication.swift in Sources */,
 				E160C77F1E6485E000970B23 /* SignInViewController.swift in Sources */,
+				E1FC47DD1E65689F0054C554 /* AccountValidator.swift in Sources */,
 				E160C7771E64808D00970B23 /* SignInState.swift in Sources */,
 				E160C77B1E6483B500970B23 /* SignInActions.swift in Sources */,
+				E1FC47DF1E656A4E0054C554 /* Constants.swift in Sources */,
 				E160C77D1E64847F00970B23 /* SignInReducer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,7 +30,7 @@
         <!--Log In-->
         <scene sceneID="wRJ-4B-SU5">
             <objects>
-                <viewController id="4NC-nl-Xrj" sceneMemberID="viewController">
+                <viewController id="4NC-nl-Xrj" customClass="SignInViewController" customModule="ReSwiftLogIn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0xq-QE-2ku"/>
                         <viewControllerLayoutGuide type="bottom" id="Q6S-BE-kmT"/>
@@ -45,7 +45,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tc6-f0-HZ8">
                                         <rect key="frame" x="110.5" y="0.0" width="106" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.2807837446" green="0.72051177180000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KnN-72-Nob">
@@ -60,19 +60,25 @@
                                         <color key="backgroundColor" red="0.2807837446" green="0.72051177180000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nB2-2m-PoX">
                                         <rect key="frame" x="142.5" y="110.5" width="42" height="30"/>
                                         <state key="normal" title="Log In">
-                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.2807837446" green="0.72051177180000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapLogIn:" destination="4NC-nl-Xrj" eventType="touchUpInside" id="qMT-P8-Xzg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-q6-G1q">
                                         <rect key="frame" x="110" y="150.5" width="107" height="30"/>
                                         <state key="normal" title="Create Account">
-                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.2807837446" green="0.72051177180000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapCreateAccount:" destination="4NC-nl-Xrj" eventType="touchUpInside" id="XrW-bm-eKT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -80,15 +86,29 @@
                                     <constraint firstItem="KnN-72-Nob" firstAttribute="width" secondItem="rU1-3e-3Ez" secondAttribute="width" multiplier="0.5" id="WYI-Zp-lFA"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7T-0U-rlI">
+                                <rect key="frame" x="24" y="84" width="343" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rU1-3e-3Ez" firstAttribute="leading" secondItem="OcM-ei-vgY" secondAttribute="leadingMargin" constant="8" id="CxS-Id-mnk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rU1-3e-3Ez" secondAttribute="trailing" constant="8" id="M3Y-Oa-I5m"/>
+                            <constraint firstItem="n7T-0U-rlI" firstAttribute="leading" secondItem="OcM-ei-vgY" secondAttribute="leadingMargin" constant="8" id="Qpn-iD-CoP"/>
                             <constraint firstItem="rU1-3e-3Ez" firstAttribute="centerY" secondItem="OcM-ei-vgY" secondAttribute="centerY" id="Ri8-ib-cIa"/>
+                            <constraint firstItem="n7T-0U-rlI" firstAttribute="trailing" secondItem="OcM-ei-vgY" secondAttribute="trailingMargin" constant="8" id="x0o-TV-YSc"/>
+                            <constraint firstItem="n7T-0U-rlI" firstAttribute="top" secondItem="0xq-QE-2ku" secondAttribute="bottom" constant="20" id="xVX-Ny-34l"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="pF5-1I-1sE"/>
+                    <connections>
+                        <outlet property="emailField" destination="KnN-72-Nob" id="zik-LO-x4H"/>
+                        <outlet property="errorField" destination="n7T-0U-rlI" id="nuS-fG-897"/>
+                        <outlet property="passwordField" destination="U9c-ZR-I2y" id="IBE-T1-PYD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VEl-bX-c4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

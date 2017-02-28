@@ -28,12 +28,15 @@ PODS:
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.8)
   - ReSwift (3.0.0)
+  - ReSwiftRouter (0.5.1):
+    - ReSwift (~> 3.0.0)
   - SwiftLint (0.16.1)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - ReSwift
+  - ReSwiftRouter
   - SwiftLint
 
 SPEC CHECKSUMS:
@@ -45,8 +48,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   ReSwift: f0255f4b4f2dacd12c5d97d34d13fc5dad6d6371
+  ReSwiftRouter: c620138bf94b57c068f789d51c0bd23efc42bf68
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
 
-PODFILE CHECKSUM: 5fefb89969a3be7491df3f84e0b8a23f3adb51e3
+PODFILE CHECKSUM: 361beec251fcd05a5155c42bafbfabc0f3e15eeb
 
 COCOAPODS: 1.2.0

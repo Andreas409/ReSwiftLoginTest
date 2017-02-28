@@ -1,5 +1,6 @@
 import UIKit
 import ReSwift
+import Firebase
 
 let mainStore = Store<SignInState>(reducer: SignInReducer(), state: nil)
 
@@ -7,8 +8,10 @@ let mainStore = Store<SignInState>(reducer: SignInReducer(), state: nil)
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var firebaseListener: FirebaseListener?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        firebaseListener = FirebaseListener()
         return true
     }
 

@@ -7,6 +7,7 @@ target 'ReSwiftLogIn' do
 
   # Pods for ReSwiftLogIn
   pod 'ReSwift'
+  pod 'ReSwiftRouter'
   pod 'SwiftLint'
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
