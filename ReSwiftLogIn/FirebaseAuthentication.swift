@@ -6,9 +6,6 @@ class FirebaseAuthentication: FirebaseInstance {
         //toask: just use auth()?
         if let auth = FIRAuth.auth() {
             auth.signIn(withEmail: email, password: password) { (user, error) in
-                if user != nil {
-                    dispatcher.logInSuccess()
-                }
                 if let error = error {
                     print("Error: \(error)")
                 }

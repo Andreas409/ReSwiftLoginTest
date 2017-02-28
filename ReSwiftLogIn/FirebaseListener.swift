@@ -3,7 +3,7 @@ import Firebase
 class FirebaseListener {
     
     var authStateListener: FIRAuthStateDidChangeListenerHandle!
-    let dispatcher = SignInDispatcher()
+    let dispatcher = AuthenticationDispatcher()
     
     init() {
         FIRApp.configure()
@@ -23,6 +23,8 @@ class FirebaseListener {
             authStateListener = auth.addStateDidChangeListener { [weak self] (_, user) in
                 if user != nil {
                     self?.dispatcher.logInSuccess()
+                } else {
+                    self?.dispatcher.logOutSuccess()
                 }
                 print("User desc: \(user.debugDescription)")
                 print("User name: \(user?.email)")

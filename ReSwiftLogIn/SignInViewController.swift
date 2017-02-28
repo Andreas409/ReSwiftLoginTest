@@ -5,7 +5,6 @@ import UIKit
 class SignInViewController: UIViewController {
     typealias StoreSubscriberStateType = SignInState
     
-    @IBOutlet weak var signOutButton: UIBarButtonItem!
     @IBOutlet weak var createAccountButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -24,10 +23,6 @@ class SignInViewController: UIViewController {
         if let email = emailField.text, let password = passwordField.text {
             dispatcher.createAccount(email: email, password: password)
         }
-    }
-    
-    @IBAction func didTapSignOut(_ sender: Any) {
-        dispatcher.signOut()
     }
     
     fileprivate func enableLoadingState() {
@@ -76,16 +71,8 @@ extension SignInViewController: StoreSubscriber {
         
         if state.loading {
             enableLoadingState()
-        } else {
-            if state.signedIn {
-                disableLoadingState()
-                signOutButton.isEnabled = true
-            } else {
-                signOutButton.isEnabled = false
-            }
-        }
+        } 
     }
-    
 }
 
 extension SignInViewController: UITextFieldDelegate {
@@ -116,7 +103,6 @@ extension SignInViewController {
     private func setupScene() {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.stopAnimating()
-        signOutButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {

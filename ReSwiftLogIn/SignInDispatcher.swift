@@ -27,13 +27,4 @@ struct SignInDispatcher {
     func createAccountSuccess() {
         mainStore.dispatch(SignInActionCreatedAccount())
     }
-    
-    func logInSuccess() {
-        mainStore.dispatch(SignInActionLogInSuccess())
-    }
-    
-    func signOut() {
-        firebase.signOutUser()
-        mainStore.dispatch(SignInActionSignOut())
-    }
 }

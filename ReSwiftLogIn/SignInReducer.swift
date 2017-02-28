@@ -1,9 +1,8 @@
 import ReSwift
 
 struct SignInReducer {
-    typealias ReducerStateType = SignInState
     
-    static func handle(action: Action, state: SignInState?) -> SignInState {
+    static func handle(action: Action, for state: SignInState?) -> SignInState {
         var state = state ?? createInitialSignInState()
         
         switch action {
@@ -17,14 +16,9 @@ struct SignInReducer {
             state = handlePasswordValidationRequest(action: action, state: state)
         case _ as SignInActionCreatedAccount:
             state = handleCreatedAccountRequest(state: state)
-        case _ as SignInActionLogInSuccess:
-            state = handleLogInSuccessRequest(state: state)
-        case _ as SignInActionSignOut:
-            state = handleSignOutRequest(state: state)
         default:
             break
         }
-        print(state)
         return state
     }
 }
@@ -32,7 +26,7 @@ struct SignInReducer {
 let validator = AccountValidator()
 
 func createInitialSignInState() -> SignInState {
-    return SignInState(userEmail: "", userPassword: "", errorMessage: "", loading: false, signedIn: false)
+    return SignInState(userEmail: "", errorMessage: "", loading: false)
 }
 
 func handleEmailValidationRequest(action: SignInActionValidateEmail, state: SignInState) -> SignInState {
@@ -69,7 +63,6 @@ func handleCreateAccountRequest(state: SignInState) -> SignInState {
 
 func handleCreatedAccountRequest(state: SignInState) -> SignInState {
     var state = state
-    state.signedIn = true
     state.loading = false
     return state
 }
@@ -80,15 +73,8 @@ func handleLogInRequest(state: SignInState) -> SignInState {
     return state
 }
 
-func handleLogInSuccessRequest(state: SignInState) -> SignInState {
-    var state = state
-    state.loading = false
-    state.signedIn = true
-    return state
-}
-
-func handleSignOutRequest(state: SignInState) -> SignInState {
-    var state = state
-    state.signedIn = false
-    return state
-}
+//func handleLogInSuccessRequest(state: SignInState) -> SignInState {
+//    var state = state
+//    state.loading = false
+//    return state
+//}

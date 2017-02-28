@@ -1,6 +1,7 @@
 import UIKit
 import ReSwift
 import Firebase
+import ReSwiftRouter
 
 let mainStore = Store<AppState>(reducer: AppReducer(), state: nil)
 
@@ -9,24 +10,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var firebaseListener: FirebaseListener?
+    var router: Router<AppState>!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        firebaseListener = FirebaseListener()
+        initialiseFirebaseListeners()
+        configureRouter()
+        routeViewControllers()
+        window?.makeKeyAndVisible()
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
+    private func initialiseFirebaseListeners() {
+        firebaseListener = FirebaseListener()
     }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
+    
+    private func configureRouter() {
+        router = Router(store: mainStore, rootRoutable: AppCoordinator(window: window!)) { state in
+            return state.navigationState
+        }
     }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
+    
+    private func routeViewControllers() {
+        if mainStore.state.authenticationState.signedIn {
+            mainStore.dispatch(ReSwiftRouter.SetRouteAction([Constants.RouteIds.signedIn]))
+        } else {
+            mainStore.dispatch(ReSwiftRouter.SetRouteAction([Constants.RouteIds.signIn]))
+        }
     }
 }
