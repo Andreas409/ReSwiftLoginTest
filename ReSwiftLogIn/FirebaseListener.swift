@@ -22,7 +22,11 @@ class FirebaseListener {
             //addStateDidChangeListener -> called twice on start and when logging out
             authStateListener = auth.addStateDidChangeListener { [weak self] (_, user) in
                 if user != nil {
-                    self?.dispatcher.logInSuccess()
+                    if let email = user?.email {
+                        self?.dispatcher.logInSuccess(email: email)
+                    } else {
+                        self?.dispatcher.logInSuccess(email: "")
+                    }
                 } else {
                     self?.dispatcher.logOutSuccess()
                 }

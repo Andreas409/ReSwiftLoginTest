@@ -6,10 +6,10 @@ struct SignInReducer {
         var state = state ?? createInitialSignInState()
         
         switch action {
-        case _ as SignInActionLogIn:
-            state = handleLogInRequest(state: state)
-        case _ as SignInActionCreateAccount:
-            state = handleCreateAccountRequest(state: state)
+        case let action as SignInActionLogIn:
+            state = handleLogInRequest(action: action, state: state)
+        case let action as SignInActionCreateAccount:
+            state = handleCreateAccountRequest(action: action, state: state)
         case let action as SignInActionValidateEmail:
             state = handleEmailValidationRequest(action: action, state: state)
         case let action as SignInActionValidatePassword:
@@ -55,15 +55,17 @@ func handlePasswordValidationRequest(action: SignInActionValidatePassword, state
     return state
 }
 
-func handleCreateAccountRequest(state: SignInState) -> SignInState {
+func handleCreateAccountRequest(action: SignInActionCreateAccount, state: SignInState) -> SignInState {
     var state = state
     state.loading = true
+    state.userEmail = action.email
     return state
 }
 
-func handleLogInRequest(state: SignInState) -> SignInState {
+func handleLogInRequest(action: SignInActionLogIn, state: SignInState) -> SignInState {
     var state = state
     state.loading = true
+    state.userEmail = action.email
     return state
 }
 

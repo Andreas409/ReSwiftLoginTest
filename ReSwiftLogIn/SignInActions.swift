@@ -1,7 +1,11 @@
 import ReSwift
 
-struct SignInActionLogIn: Action {}
-struct SignInActionCreateAccount: Action {}
+struct SignInActionLogIn: Action {
+    let email: String
+}
+struct SignInActionCreateAccount: Action {
+    let email: String
+}
 struct UpdateLoadingStateAction: Action {
     let loading: Bool
 }

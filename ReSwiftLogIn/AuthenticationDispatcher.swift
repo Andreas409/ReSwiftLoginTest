@@ -3,9 +3,10 @@ import ReSwiftRouter
 
 struct AuthenticationDispatcher {
     
-    func logInSuccess() {
+    func logInSuccess(email: String) {
         mainStore.dispatch(UpdateSignedInStateAction(signedIn: true))
         mainStore.dispatch(UpdateLoadingStateAction(loading: false))
+        mainStore.dispatch(CreateUsernameAction(email: email))
         mainStore.dispatch(ReSwiftRouter.SetRouteAction([Constants.RouteIds.signedIn]))
     }
 
