@@ -3,7 +3,7 @@ import ReSwift
 struct SignedInReducer {
     
     static func handle(action: Action, for state: SignedInState?) -> SignedInState {
-        var state = state ?? createInitialSignedInState()
+        let state = state ?? createInitialSignedInState()
         return state
     }
 }

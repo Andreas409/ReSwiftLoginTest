@@ -23,8 +23,4 @@ struct SignInDispatcher {
     func validatePassword(password: String) {
         mainStore.dispatch(SignInActionValidatePassword(password: password))
     }
-    
-    func createAccountSuccess() {
-        mainStore.dispatch(SignInActionCreatedAccount())
-    }
 }

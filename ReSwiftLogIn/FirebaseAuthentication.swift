@@ -5,7 +5,7 @@ class FirebaseAuthentication: FirebaseInstance {
     internal func signInUser(email: String, password: String, dispatcher: SignInDispatcher) {
         //toask: just use auth()?
         if let auth = FIRAuth.auth() {
-            auth.signIn(withEmail: email, password: password) { (user, error) in
+            auth.signIn(withEmail: email, password: password) { (_, error) in
                 if let error = error {
                     print("Error: \(error)")
                 }
@@ -25,7 +25,7 @@ class FirebaseAuthentication: FirebaseInstance {
         if let auth = FIRAuth.auth() {
             auth.createUser(withEmail: email, password: password) { (user, error) in
                 if user != nil {
-                    dispatcher.createAccountSuccess()
+                    dispatcher.login(email: email, password: password)
                 }
                 if let error = error {
                     print("Error: \(error)")

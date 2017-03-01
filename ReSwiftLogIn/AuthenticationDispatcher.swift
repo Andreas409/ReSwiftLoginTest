@@ -5,6 +5,7 @@ struct AuthenticationDispatcher {
     
     func logInSuccess() {
         mainStore.dispatch(UpdateSignedInStateAction(signedIn: true))
+        mainStore.dispatch(UpdateLoadingStateAction(loading: false))
         mainStore.dispatch(ReSwiftRouter.SetRouteAction([Constants.RouteIds.signedIn]))
     }
 
