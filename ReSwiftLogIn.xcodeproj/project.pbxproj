@@ -124,6 +124,7 @@
 			children = (
 				E1FC47DE1E656A4E0054C554 /* Constants.swift */,
 				E1FC47DC1E65689F0054C554 /* AccountValidator.swift */,
+				E160C75F1E647E7100970B23 /* AppDelegate.swift */,
 				E1FC47EE1E65BE720054C554 /* App */,
 				E1FC47FB1E65CF190054C554 /* Authentication */,
 				E160C7741E64802900970B23 /* SignedIn */,
@@ -183,7 +184,6 @@
 		E1FC47EE1E65BE720054C554 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				E160C75F1E647E7100970B23 /* AppDelegate.swift */,
 				E160C7781E64836500970B23 /* AppState.swift */,
 				E1FC47EC1E65B6310054C554 /* AppReducer.swift */,
 				E1FC47EF1E65BE8F0054C554 /* AppCoordinator.swift */,
@@ -287,7 +287,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReSwiftLogIn/Pods-ReSwiftLogIn-frameworks.sh\"\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReSwiftLogIn/Pods-ReSwiftLogIn-frameworks.sh\"\n\"${PODS_ROOT}/SwiftLint/swiftlint\"";
 			showEnvVarsInLog = 0;
 		};
 		AEB9D71817FEA9923CFF7D2A /* [CP] Check Pods Manifest.lock */ = {

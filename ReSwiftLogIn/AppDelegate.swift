@@ -1,7 +1,9 @@
 import UIKit
-import ReSwift
+import ReSwift 
 import Firebase
 import ReSwiftRouter
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 let mainStore = Store<AppState>(reducer: AppReducer(), state: nil)
 
@@ -17,7 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureRouter()
         routeViewControllers()
         window?.makeKeyAndVisible()
-        return true
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        return handled
     }
 
     private func initialiseFirebaseListeners() {
@@ -36,5 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             mainStore.dispatch(ReSwiftRouter.SetRouteAction([Constants.RouteIds.signIn]))
         }
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        FBSDKAppEvents.activateApp()
     }
 }

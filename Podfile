@@ -11,5 +11,6 @@ target 'ReSwiftLogIn' do
   pod 'SwiftLint'
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
-
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
 end
