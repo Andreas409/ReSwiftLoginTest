@@ -1,13 +1,18 @@
 import ReSwift
 import ReSwiftRouter
+import Firebase
 
 struct SignInDispatcher {
     
     let firebase = FirebaseAuthentication()
     
-    func login(email: String, password: String) {
-        firebase.signInUser(email: email, password: password, dispatcher: self)
+    func login(withEmail email: String, password: String) {
+        firebase.signInUser(withEmail: email, password: password, dispatcher: self)
         mainStore.dispatch(SignInActionLogIn(email: email))
+    }
+    
+    func login(withCredential credential: FIRAuthCredential) {
+        firebase.signInUser(withCredential: credential, dispatcher: self)
     }
     
     func createAccount(email: String, password: String) {

@@ -1,10 +1,13 @@
 import ReSwift
 import ReSwiftRouter
 import UIKit
+import FBSDKLoginKit
+import FBSDKCoreKit
 
 class SignInViewController: UIViewController {
     typealias StoreSubscriberStateType = SignInState
     
+    @IBOutlet weak var FBLoginButton: FBSDKLoginButton!
     @IBOutlet weak var createAccountButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -15,7 +18,7 @@ class SignInViewController: UIViewController {
     
     @IBAction func didTapLogIn(_ sender: AnyObject) {
         if let email = emailField.text, let password = passwordField.text {
-            dispatcher.login(email: email, password: password)
+            dispatcher.login(withEmail: email, password: password)
         }
     }
     
@@ -94,15 +97,13 @@ extension SignInViewController: UITextFieldDelegate {
 }
 
 extension SignInViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         assignTextFieldDelegates()
         setupScene()
-    }
-    
-    private func setupScene() {
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.stopAnimating()
+        setupFacebook()
+        checkFBLogIn()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,5 +122,20 @@ extension SignInViewController {
         emailField.delegate = self
         passwordField.delegate = self
     }
-
+    
+    private func setupFacebook() {
+        FBLoginButton.delegate = self
+        FBLoginButton.readPermissions = ["public_profile", "email"]
+    }
+    
+    private func setupScene() {
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
+    }
+    
+    private func checkFBLogIn() {
+        if let token = FBSDKAccessToken.current() {
+            print("user is logged in: \(token)")
+        }
+    }
 }
