@@ -18,7 +18,7 @@ class SignInViewController: UIViewController {
     
     @IBAction func didTapLogIn(_ sender: AnyObject) {
         if let email = emailField.text, let password = passwordField.text {
-            dispatcher.login(email: email, password: password)
+            dispatcher.login(withEmail: email, password: password)
         }
     }
     
@@ -125,8 +125,8 @@ extension SignInViewController {
     
     private func setupFacebook() {
         FBLoginButton.delegate = self
+        FBLoginButton.readPermissions = ["public_profile", "email"]
     }
-    
     
     private func setupScene() {
         activityIndicator.hidesWhenStopped = true
@@ -136,21 +136,6 @@ extension SignInViewController {
     private func checkFBLogIn() {
         if let token = FBSDKAccessToken.current() {
             print("user is logged in: \(token)")
-            
         }
-    }
-}
-
-extension SignInViewController: FBSDKLoginButtonDelegate {
-    
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("User Logged Out")
     }
 }
