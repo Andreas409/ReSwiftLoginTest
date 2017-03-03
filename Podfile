@@ -13,4 +13,6 @@ target 'ReSwiftLogIn' do
   pod 'Firebase/Core'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
+  pod 'Google/SignIn'
+  
 end

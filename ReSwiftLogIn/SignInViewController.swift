@@ -3,6 +3,7 @@ import ReSwiftRouter
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
+import GoogleSignIn
 
 class SignInViewController: UIViewController {
     typealias StoreSubscriberStateType = SignInState
@@ -104,6 +105,7 @@ extension SignInViewController {
         setupScene()
         setupFacebook()
         checkFBLogIn()
+        setupGoogleSignIn()
     }
     
     override func viewWillAppear(_ animated: Bool) {

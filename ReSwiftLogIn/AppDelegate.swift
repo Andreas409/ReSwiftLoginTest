@@ -4,6 +4,8 @@ import Firebase
 import ReSwiftRouter
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Google
+import GoogleSignIn
 
 let mainStore = Store<AppState>(reducer: AppReducer(), state: nil)
 
@@ -13,20 +15,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var firebaseListener: FirebaseListener?
     var router: Router<AppState>!
+    let firebase = FirebaseAuthentication()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         initialiseFirebaseListeners()
         configureRouter()
         routeViewControllers()
+        initGoogleSignIn()
         window?.makeKeyAndVisible()
-        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        return initFacebookSignIn(application, launchOptions)
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
-        return handled
+        let facebookHandle = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        let googleHandle = GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
+        return facebookHandle && googleHandle
+    }
+    
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String
+        let facebookHandle = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: [:])
+        let googleHandle = GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: [:])
+        return facebookHandle && googleHandle
     }
 
+    private func initFacebookSignIn(_ application: UIApplication, _ launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
     private func initialiseFirebaseListeners() {
         firebaseListener = FirebaseListener()
     }

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		16B8BEA9267A892BC84117B0 /* Pods_ReSwiftLogIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B6A55BD024AC3F93C4497E /* Pods_ReSwiftLogIn.framework */; };
-		E10F08CD1E6956680035C6EC /* FacebookSignInDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10F08CC1E6956680035C6EC /* FacebookSignInDelegate.swift */; };
+		E10F08CD1E6956680035C6EC /* FacebookButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10F08CC1E6956680035C6EC /* FacebookButtonDelegate.swift */; };
 		E160C7601E647E7100970B23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160C75F1E647E7100970B23 /* AppDelegate.swift */; };
 		E160C7651E647E7100970B23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E160C7631E647E7100970B23 /* Main.storyboard */; };
 		E160C7671E647E7100970B23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E160C7661E647E7100970B23 /* Assets.xcassets */; };
@@ -18,6 +18,8 @@
 		E160C77B1E6483B500970B23 /* SignInActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160C77A1E6483B500970B23 /* SignInActions.swift */; };
 		E160C77D1E64847F00970B23 /* SignInReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160C77C1E64847F00970B23 /* SignInReducer.swift */; };
 		E160C77F1E6485E000970B23 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160C77E1E6485E000970B23 /* SignInViewController.swift */; };
+		E1E4294E1E699432000FDC34 /* GoogleSignInDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E4294D1E699432000FDC34 /* GoogleSignInDelegate.swift */; };
+		E1E429501E699862000FDC34 /* GoogleButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E4294F1E699862000FDC34 /* GoogleButtonDelegate.swift */; };
 		E1FC47DB1E6565830054C554 /* SignInDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC47DA1E6565830054C554 /* SignInDispatcher.swift */; };
 		E1FC47DD1E65689F0054C554 /* AccountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC47DC1E65689F0054C554 /* AccountValidator.swift */; };
 		E1FC47DF1E656A4E0054C554 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC47DE1E656A4E0054C554 /* Constants.swift */; };
@@ -42,7 +44,7 @@
 		01611BCB7A171BBF44908782 /* Pods-ReSwiftLogIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSwiftLogIn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReSwiftLogIn/Pods-ReSwiftLogIn.debug.xcconfig"; sourceTree = "<group>"; };
 		69B6A55BD024AC3F93C4497E /* Pods_ReSwiftLogIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReSwiftLogIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92EC0F4C745E4C21F100056 /* Pods-ReSwiftLogIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSwiftLogIn.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReSwiftLogIn/Pods-ReSwiftLogIn.release.xcconfig"; sourceTree = "<group>"; };
-		E10F08CC1E6956680035C6EC /* FacebookSignInDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookSignInDelegate.swift; sourceTree = "<group>"; };
+		E10F08CC1E6956680035C6EC /* FacebookButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookButtonDelegate.swift; sourceTree = "<group>"; };
 		E160C75C1E647E7100970B23 /* ReSwiftLogIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReSwiftLogIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E160C75F1E647E7100970B23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E160C7641E647E7100970B23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +56,8 @@
 		E160C77A1E6483B500970B23 /* SignInActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInActions.swift; sourceTree = "<group>"; };
 		E160C77C1E64847F00970B23 /* SignInReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInReducer.swift; sourceTree = "<group>"; };
 		E160C77E1E6485E000970B23 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		E1E4294D1E699432000FDC34 /* GoogleSignInDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSignInDelegate.swift; sourceTree = "<group>"; };
+		E1E4294F1E699862000FDC34 /* GoogleButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleButtonDelegate.swift; sourceTree = "<group>"; };
 		E1FC47DA1E6565830054C554 /* SignInDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInDispatcher.swift; sourceTree = "<group>"; };
 		E1FC47DC1E65689F0054C554 /* AccountValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountValidator.swift; sourceTree = "<group>"; };
 		E1FC47DE1E656A4E0054C554 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -106,7 +110,7 @@
 		E10F08CE1E6988D40035C6EC /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
-				E10F08CC1E6956680035C6EC /* FacebookSignInDelegate.swift */,
+				E10F08CC1E6956680035C6EC /* FacebookButtonDelegate.swift */,
 			);
 			name = Facebook;
 			sourceTree = "<group>";
@@ -191,6 +195,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E1E4294C1E699429000FDC34 /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				E1E4294D1E699432000FDC34 /* GoogleSignInDelegate.swift */,
+				E1E4294F1E699862000FDC34 /* GoogleButtonDelegate.swift */,
+			);
+			name = Google;
+			sourceTree = "<group>";
+		};
 		E1FC47EE1E65BE720054C554 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +217,7 @@
 		E1FC47FB1E65CF190054C554 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				E1E4294C1E699429000FDC34 /* Google */,
 				E10F08CE1E6988D40035C6EC /* Facebook */,
 				E1FC47FC1E65CF3B0054C554 /* AuthenticationState.swift */,
 				E1FC48021E65D3B40054C554 /* AuthenticationDispatcher.swift */,
@@ -249,6 +263,7 @@
 					E160C75B1E647E7100970B23 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 2KZ8M26285;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -338,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1E4294E1E699432000FDC34 /* GoogleSignInDelegate.swift in Sources */,
 				E160C7601E647E7100970B23 /* AppDelegate.swift in Sources */,
 				E1FC47E11E657C610054C554 /* FirebaseInstance.swift in Sources */,
 				E1FC48031E65D3B40054C554 /* AuthenticationDispatcher.swift in Sources */,
@@ -350,8 +366,9 @@
 				E1FC47E31E657E330054C554 /* FirebaseAuthentication.swift in Sources */,
 				E1FC47F01E65BE8F0054C554 /* AppCoordinator.swift in Sources */,
 				E1FC47FD1E65CF3B0054C554 /* AuthenticationState.swift in Sources */,
-				E10F08CD1E6956680035C6EC /* FacebookSignInDelegate.swift in Sources */,
+				E10F08CD1E6956680035C6EC /* FacebookButtonDelegate.swift in Sources */,
 				E160C77F1E6485E000970B23 /* SignInViewController.swift in Sources */,
+				E1E429501E699862000FDC34 /* GoogleButtonDelegate.swift in Sources */,
 				E1FC47F81E65C77D0054C554 /* SignedInReducer.swift in Sources */,
 				E1FC47ED1E65B6310054C554 /* AppReducer.swift in Sources */,
 				E1FC47DD1E65689F0054C554 /* AccountValidator.swift in Sources */,
@@ -483,11 +500,13 @@
 			baseConfigurationReference = 01611BCB7A171BBF44908782 /* Pods-ReSwiftLogIn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2KZ8M26285;
 				INFOPLIST_FILE = ReSwiftLogIn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = andreas.ReSwiftLogIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -497,6 +516,7 @@
 			baseConfigurationReference = B92EC0F4C745E4C21F100056 /* Pods-ReSwiftLogIn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2KZ8M26285;
 				INFOPLIST_FILE = ReSwiftLogIn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

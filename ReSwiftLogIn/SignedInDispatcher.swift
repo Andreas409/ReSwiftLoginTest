@@ -1,5 +1,6 @@
 import ReSwift
 import ReSwiftRouter
+import FBSDKLoginKit
 
 struct SignedInDispatcher {
     
