@@ -6,7 +6,7 @@ extension SignInViewController: GIDSignInUIDelegate {
     
     func setupGoogleSignIn() {
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
+        attemptSignIn()
     }
     
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
@@ -18,5 +18,9 @@ extension SignInViewController: GIDSignInUIDelegate {
             let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
             dispatcher.login(withCredential: credential)
         }
+    }
+    
+    private func attemptSignIn() {
+        GIDSignIn.sharedInstance().signInSilently()
     }
 }

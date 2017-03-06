@@ -18,4 +18,16 @@ extension SignInViewController: FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("User Logged Out of Facebook")
     }
+    
+    func checkFBLogIn() {
+        if let token = FBSDKAccessToken.current() {
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: token.tokenString)
+            dispatcher.login(withCredential: credential)
+        }
+    }
+    
+    func setupFacebook() {
+        FBLoginButton.delegate = self
+        FBLoginButton.readPermissions = ["public_profile", "email"]
+    }
 }

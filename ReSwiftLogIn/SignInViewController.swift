@@ -4,6 +4,7 @@ import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 import GoogleSignIn
+import Firebase
 
 class SignInViewController: UIViewController {
     typealias StoreSubscriberStateType = SignInState
@@ -124,20 +125,9 @@ extension SignInViewController {
         emailField.delegate = self
         passwordField.delegate = self
     }
-    
-    private func setupFacebook() {
-        FBLoginButton.delegate = self
-        FBLoginButton.readPermissions = ["public_profile", "email"]
-    }
-    
+
     private func setupScene() {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.stopAnimating()
-    }
-    
-    private func checkFBLogIn() {
-        if let token = FBSDKAccessToken.current() {
-            print("user is logged in: \(token)")
-        }
     }
 }
